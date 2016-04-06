@@ -25,7 +25,7 @@ class LogDataLoader:
     def get_data(self, id):
         df = self.df[self.df.runid == id]
         df = df.sort_values("id")
-        df["epoch"] = sp.arange(len(df))
+        df["epoch"] = list(range(len(df)))
         return df
 
     def get_config(self, id):

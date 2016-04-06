@@ -9,4 +9,4 @@ setup(name="kerasvis",
     license="GPL",
     classifier=['Programming Language :: Python :: 3'],
     keywords="keras optimization visualization",
-    install_requires=["flask", "bokeh", "pandas", "scipy", "keras"])
+    install_requires=["flask", "bokeh", "pandas", "keras"])
