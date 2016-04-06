@@ -6,6 +6,13 @@ This package visualizes ongoing Keras optimizations live in your browser.
 Optimization runs are logged in a database. To use this visualization you have to
 add `DBLogger` as callback to your optimization. 
 
+Installation
+------------
+
+Install directly from github:
+
+    pip install git+git://github.com/neuralyzer/kerasvis.git 
+
 
 Quickstart example
 ------------------
