@@ -26,7 +26,10 @@ class DBLogger(Callback):
         super().__init__()
         if db_folder is None:
             db_folder = os.path.join(os.environ["HOME"], "tmp")
-        os.makedirs(db_folder)
+        try:
+            os.makedirs(db_folder)
+        except FileExistsError:
+            pass
         db_path = os.path.join(db_folder, "keras_logs.db")
         self.connection = sqlite3.connect(db_path)
         self._create_tables()
