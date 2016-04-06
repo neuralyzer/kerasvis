@@ -1,0 +1,2 @@
+recursive-include kerasvis/server/static
+recursive-include kerasvis/server/templates
