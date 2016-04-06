@@ -1,4 +1,5 @@
 from setuptools import setup
+from setuptools import find_packages
 
 setup(name="kerasvis",
     version="0.1.0",
@@ -9,4 +10,5 @@ setup(name="kerasvis",
     license="GPL",
     classifier=['Programming Language :: Python :: 3'],
     keywords="keras optimization visualization",
-    install_requires=["flask", "bokeh", "pandas", "keras"])
+    install_requires=["flask", "bokeh", "pandas", "keras"],
+    packages=find_packages())
