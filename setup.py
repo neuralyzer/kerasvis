@@ -11,4 +11,5 @@ setup(name="kerasvis",
     classifier=['Programming Language :: Python :: 3'],
     keywords="keras optimization visualization",
     install_requires=["flask", "bokeh", "pandas", "keras"],
-    packages=find_packages())
+    packages=find_packages(),
+    include_package_data = True)
