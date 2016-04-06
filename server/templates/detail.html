@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block resources %}
+{{ loss.bokehjs|indent(4)|safe }}
+{{ loss.css|indent(4)|safe }}
+{{ loss.script|indent(4)|safe }}
+{% endblock %}
+
+{% block submenu %}
+<h4>Runs</h4>
+<ul class="menu">
+{% for current_id, comment in runs %}
+<li>
+    <a href="{{ url_for('detail', id=current_id) }}" {%if current_id==id %}class="current_item"{% endif %}>[{{ current_id }}] {{ comment }}</a>
+</li>
+{% endfor %}
+</ul>
+{% endblock %}
+
+{% block content %}
+<h1>[{{ id }}] {{ comment }}</h1>
+{{ loss.div|indent(4)|safe }}
+DB load time: {{ db_load_time }}, Last epoch: {{ last_update_time }}
+
+<h2>Config</h2>
+<h3>General</h3>
+<dl>
+    {% for key, value in general.items() %}
+    {% if key != "optimizer" %}
+        <dt>{{ key }}</dt>
+        <dd>{{ value }}</dd>
+    {% endif %}
+    {% endfor %}
+</dl>
+
+<h3>Optimizer - {{ general["optimizer"]["name"] }}</h3>
+<dl>
+    {% for key, value in general["optimizer"].items() %}
+        <dt>{{ key }}</dt>
+        <dd>{{ value }}</dd>
+    {% endfor %}
+</dl>
+
+{% for layer in layers %}
+    <h3>Layer {{ loop.index0 }} - {{ layer["custom_name"] }}</h3>
+<dl>
+    {% for key, value in layer.items() %}
+        <dt>{{ key }}</dt>
+        <dd>{{ value }}</dd>
+    {% endfor %}
+</dl>
+{% endfor %}
+{% endblock %}

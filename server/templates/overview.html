@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Training runs</h1>
+<table>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Comment
+        </th>
+        <th>
+            User
+        </th>
+    </tr>
+    {% for id, comment, user in data %}
+    <tr class="{{ loop.cycle('odd', 'even') }}">
+        <td>
+            <a href="{{ url_for('detail', id=id) }}">{{ id }}</a>
+        </td>
+        <td>
+            <a href="{{ url_for('detail', id=id) }}">{{ comment }}</a>
+        </td>
+        <td>
+            <a href="{{ url_for('detail', id=id) }}">{{ user }}</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
