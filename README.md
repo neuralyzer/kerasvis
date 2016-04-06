@@ -21,12 +21,20 @@ Quickstart example
     from kerasvis import DBLogger
     from keras.models import Sequential
     from keras.layers import Dense
-    
+
+    import scipy as sp
+    X = sp.rand(200, 20)
+    y = (sp.rand(200, 1) < .5).astype(int)
+
     model = Sequential()
-    model.add(Dense(input_dim=1, 200))
-    model.compile("sgd", "binary_crossentropy", class_mode="binary")
-    history = model.fit(X, y, nb_epoch=10, batch_size=64, verbose=0,
-                        validation_split=0.2, show_accuracy=True, callbacks=[DBLogger(comment="comment")])
+    model.add(Dense(200, input_dim=20, activation="sigmoid"))
+    model.add(Dense(1, activation="sigmoid"))
+    model.compile("sgd", "binary_crossentropy")
+
+    logger = DBLogger(comment="An example run")
+    history = model.fit(X, y, nb_epoch=100, batch_size=64, verbose=0,
+                        validation_split=0.2, show_accuracy=True, callbacks=[logger])
+
 
 Check the docstring of the DBLogger class for more information.
 
