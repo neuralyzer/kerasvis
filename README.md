@@ -28,12 +28,16 @@ Quickstart example
     history = model.fit(X, y, nb_epoch=10, batch_size=64, verbose=0,
                         validation_split=0.2, show_accuracy=True, callbacks=[DBLogger(comment="comment")])
 
+Check the docstring of the DBLogger class for more information.
+
 Start the keras visualization server with
 
-    python -m kerasvis.runserver --port=5000 --db_path=/path/to/db 
+    python -m kerasvis.runserver
     
 to have the server listen to port 5000. Then point your browser to the server and check how your optimizations are doing.
-You can also specify the database file to readout. Both part and db_path are optional arguments.
+You can also specify the database file to readout. Both part and db_path are optional arguments. For more command line options do
+
+    python -m kerasvis.runserver --help
 
 Delete runs from the database
 -----------------------------
