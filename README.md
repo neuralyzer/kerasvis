@@ -49,7 +49,7 @@ You can also specify the database file to readout. Both part and db_path are opt
     
 You'll see a web output similar to the one below
 
-![Loss Accuracy screenshot](loss_accuracy_screenshot.pnt)
+![Loss Accuracy screenshot](loss_accuracy_screenshot.png)
 
 Delete runs from the database
 -----------------------------
