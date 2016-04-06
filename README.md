@@ -46,6 +46,10 @@ to have the server listen to port 5000. Then point your browser to the server an
 You can also specify the database file to readout. Both part and db_path are optional arguments. For more command line options do
 
     python -m kerasvis.runserver --help
+    
+You'll see a web output similar to the one below
+
+![Loss Accuracy screenshot](loss_accuracy_screenshot.pnt)
 
 Delete runs from the database
 -----------------------------
