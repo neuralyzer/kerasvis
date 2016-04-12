@@ -33,7 +33,7 @@ Quickstart example
 
     logger = DBLogger(comment="An example run")
     history = model.fit(X, y, nb_epoch=100, batch_size=64, verbose=0,
-                        validation_split=0.2, show_accuracy=True, callbacks=[logger])
+                        validation_split=0.2, callbacks=[logger]
 
 
 Check the docstring of the DBLogger class for more information.

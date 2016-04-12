@@ -25,7 +25,7 @@ DB load time: {{ db_load_time }}, Last epoch: {{ last_update_time }}
 <h3>General</h3>
 <dl>
     {% for key, value in general.items() %}
-    {% if key != "optimizer" %}
+    {% if key != "optimizer" and key != "config" %}
         <dt>{{ key }}</dt>
         <dd>{{ value }}</dd>
     {% endif %}
@@ -44,8 +44,15 @@ DB load time: {{ db_load_time }}, Last epoch: {{ last_update_time }}
     <h3>Layer {{ loop.index0 }} - {{ layer["custom_name"] }}</h3>
 <dl>
     {% for key, value in layer.items() %}
+       {% if key != "config" %}
         <dt>{{ key }}</dt>
         <dd>{{ value }}</dd>
+       {% else %}
+            {% for key_inner, value_inner in value.items() %}
+                    <dt>{{ key_inner }}</dt>
+                    <dd>{{ value_inner }}</dd>
+            {% endfor %}
+       {% endif %} 
     {% endfor %}
 </dl>
 {% endfor %}
