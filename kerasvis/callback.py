@@ -2,7 +2,7 @@ import getpass
 import os
 import sqlite3
 import warnings
-
+import json
 from keras.callbacks import Callback
 
 
@@ -104,6 +104,8 @@ class DBLogger(Callback):
                     config = self.model.to_json()
                 except Exception:
                     config = str(self.model.get_config())
+                optimizer_config = json.dumps(self.model.optimizer.get_config())
+                config = config[:-1] + ", \"optimizer\":" + optimizer_config + " }"
                 with self.connection:
                     self.connection.execute("UPDATE run set config=? WHERE id=?", (config, self.id))
         else:
