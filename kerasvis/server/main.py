@@ -27,7 +27,7 @@ def detail(id):
     last_update_time = log.get_last_update_time(id)
     config_string = log.get_config(id)
     config_dict = to_dict(config_string)
-    layers = config_dict["layers"] if "layers" in config_dict else config_dict["config"]["layers"]
+    layers = config_dict["layers"] if "layers" in config_dict else config_dict["config"]["layers"] if "layers" in config_dict["config"] else config_dict["config"]
     duration = time.time() - start_time
     general = {key: value for key, value in config_dict.items() if key != "layers"}
     if "optimizer" not in general:
