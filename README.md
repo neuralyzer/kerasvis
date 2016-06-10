@@ -40,12 +40,8 @@ Check the docstring of the DBLogger class for more information.
 
 Start the keras visualization server with
 
-    python -m kerasvis.runserver
-    
-to have the server listen to port 5000. Then point your browser to the server and check how your optimizations are doing.
-You can also specify the database file to readout. Both part and db_path are optional arguments. For more command line options do
-
-    python -m kerasvis.runserver --help
+    export FLASK_APP= kerasvis.runserver
+    flask run
     
 You'll see a web output similar to the one below
 

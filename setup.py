@@ -2,7 +2,7 @@ from setuptools import setup
 from setuptools import find_packages
 
 setup(name="kerasvis",
-    version="0.2.0",
+    version="0.3.0",
     description="Visualize Keras optimizations live in your browser",
     author="Emmanuel Klinger",
     url="http://github.com/neuralyzer/kerasvis",
@@ -10,6 +10,6 @@ setup(name="kerasvis",
     license="GPL",
     classifier=['Programming Language :: Python :: 3'],
     keywords="keras optimization visualization",
-    install_requires=["flask", "bokeh", "pandas", "keras"],
+    install_requires=["flask", "bokeh", "pandas"],
     packages=find_packages(),
     include_package_data = True)

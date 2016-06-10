@@ -3,10 +3,9 @@ import os
 import sqlite3
 import warnings
 import json
-from keras.callbacks import Callback
 
 
-class DBLogger(Callback):
+class DBLogger:
     """
     Log Keras optimization to a database and delete runs.
 
@@ -115,3 +114,24 @@ class DBLogger(Callback):
         with self.connection:
             self.connection.execute("INSERT INTO log (runid, loss, acc, epoch, val_loss, val_acc) VALUES (?,?,?,?,?,?)",
                                     (self.id, loss, acc, epoch, val_loss, val_acc))
+
+
+    # these her are copief from keras.callback to avoid the keras import
+    # and the initialization of theano caused by it
+    def _set_params(self, params):
+        self.params = params
+
+    def _set_model(self, model):
+        self.model = model
+
+    def on_epoch_begin(self, epoch, logs={}):
+        pass
+
+    def on_batch_begin(self, batch, logs={}):
+        pass
+
+    def on_batch_end(self, batch, logs={}):
+        pass
+
+    def on_train_end(self, logs={}):
+        pass

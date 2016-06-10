@@ -1,16 +1,17 @@
 import time
 from flask import Flask, render_template
-from kerasvis.server.plots import empty_plot, loss_accuracy_plot
-from kerasvis.server.dataloader import LogDataLoader, to_dict
-
+from .plots import empty_plot, loss_accuracy_plot
+from .dataloader import LogDataLoader, to_dict
+import os
 
 app = Flask(__name__)
-
+app.config["keras_log_db_path"] = "sqlite:///" + os.path.join(os.environ["HOME"], "tmp", "keras_logs.db")
+print("DB is", app.config["keras_log_db_path"])
 
 @app.route("/")
 def main():
     try:
-        log = LogDataLoader(path=app._keras_log_db_path)
+        log = LogDataLoader(path=app.config["keras_log_db_path"])
         return render_template("overview.html", data=zip(*log.get_overview()))
     except ValueError:
         return render_template("nodb.html")
@@ -19,7 +20,7 @@ def main():
 @app.route("/id/<int:id>")
 def detail(id):
     start_time = time.time()
-    log = LogDataLoader(path=app._keras_log_db_path)
+    log = LogDataLoader(path=app.config["keras_log_db_path"])
     if not log.id_exists(id):
         return render_template("idnotfound.html", id=id)
     comment = log.get_comment(id)

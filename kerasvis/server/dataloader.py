@@ -1,7 +1,6 @@
 import json
 
 import pandas as pd
-import scipy as sp
 import os
 
 
