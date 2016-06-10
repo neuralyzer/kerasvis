@@ -31,10 +31,16 @@ def detail(id):
     layers = config_dict["layers"] if "layers" in config_dict else config_dict["config"]["layers"] if "layers" in config_dict["config"] else config_dict["config"]
     duration = time.time() - start_time
     general = {key: value for key, value in config_dict.items() if key != "layers"}
+
     if "optimizer" not in general:
         general["optimizer"] = {"name": "not found"}
+
+    if log.id_exists(id) and len(df) > 0:
+        loss_plot = loss_accuracy_plot(df, "epoch", [["loss", "val_loss"], ["acc", "val_acc"]])
+    else:
+        loss_plot = empty_plot
     return render_template("detail.html",
-                           loss=loss_accuracy_plot(df, "epoch", [["loss", "val_loss"], ["acc", "val_acc"]]) if log.id_exists(id) and len(df) > 0 else empty_plot,
+                           loss=loss_plot,
                            comment=comment,
                            id=id,
                            config_data=config_string,
