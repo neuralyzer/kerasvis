@@ -30,7 +30,7 @@ class DBLogger:
         except FileExistsError:
             pass
         db_path = os.path.join(db_folder, "keras_logs.db")
-        self.connection = sqlite3.connect(db_path)
+        self.connection = sqlite3.connect(db_path, timeout=60)
         self._create_tables()
         self._init_record(id, comment)
         print(self, flush=True)
