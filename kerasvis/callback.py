@@ -24,7 +24,7 @@ class DBLogger:
     def __init__(self, *, comment="No Comment", db_folder=None, id=None):
         super().__init__()
         if db_folder is None:
-            db_folder = os.path.join(os.environ["HOME"], "tmp")
+            db_folder = os.path.join(os.path.expanduser("~"), "tmp")
         try:
             os.makedirs(db_folder)
         except FileExistsError:
