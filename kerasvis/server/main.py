@@ -1,8 +1,9 @@
 import time
+import os
 from flask import Flask, render_template
 from .plots import empty_plot, loss_accuracy_plot
 from .dataloader import LogDataLoader, to_dict
-import os
+
 
 app = Flask(__name__)
 app.config["keras_log_db_path"] = "sqlite:///" + os.path.join(os.environ["HOME"], "tmp", "keras_logs.db")
