@@ -9,7 +9,7 @@ add `DBLogger` as callback to your optimization.
 Installation
 ------------
 
-Install via pip the [kerasvis](https://pypi.python.org/pypi/kerasvis)
+Install via pip the [kerasvis](https://pypi.python.org/pypi/kerasvis) package
 
     pip install kerasvis
 
