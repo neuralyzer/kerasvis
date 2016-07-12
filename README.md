@@ -9,7 +9,11 @@ add `DBLogger` as callback to your optimization.
 Installation
 ------------
 
-Install directly from github:
+Install via pip
+
+   pip install kerasvis
+
+or install directly from github:
 
     pip install git+git://github.com/neuralyzer/kerasvis.git 
 
