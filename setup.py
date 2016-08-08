@@ -2,7 +2,7 @@ from setuptools import setup
 from setuptools import find_packages
 
 setup(name="kerasvis",
-    version="0.3.0",
+    version="0.3.1",
     description="Visualize Keras optimizations live in your browser",
     author="Emmanuel Klinger",
     url="http://github.com/neuralyzer/kerasvis",
