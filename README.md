@@ -9,6 +9,10 @@ add `DBLogger` as callback to your optimization.
 Installation
 ------------
 
+Kerasvis is developed for Python 3 only.
+It does not work with Python 2.
+There are no plans to add Python 2 support.
+
 Install via pip the [kerasvis](https://pypi.python.org/pypi/kerasvis) package
 
     pip install kerasvis
