@@ -46,7 +46,7 @@ Check the docstring of the DBLogger class for more information.
 
 Start the keras visualization server with
 
-    export FLASK_APP= kerasvis.runserver
+    export FLASK_APP=kerasvis.runserver
     flask run
     
 You'll see a web output similar to the one below
