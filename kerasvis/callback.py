@@ -18,7 +18,7 @@ class DBLogger:
     id : int
         Supply this argument if you want to continue an optimization with the given id.
 
-    db_path: str, default=None
+    db_folder: str, default=None
         If not supplied the db is stored in ~/tmp/keras_logs.db
     """
     def __init__(self, *, comment="No Comment", db_folder=None, id=None):
