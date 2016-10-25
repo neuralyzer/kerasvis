@@ -1,0 +1,9 @@
+version: '2'
+services:
+  web:
+    build: . 
+    ports:
+    - "5000:5000"
+    volumes:
+    - ~/tmp/keras_logs.db:/root/tmp/keras_logs.db
+    restart: always 
