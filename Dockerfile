@@ -1,11 +1,11 @@
 FROM python
 
+# pandas is using numpy and it is compiled in setup.py - this is simpler
+RUN pip install pandas
+
 COPY . /app
 
 WORKDIR /app
-
-# pandas is using numpy and it is compiled in setup.py - this is simpler
-RUN pip install pandas
 
 RUN python setup.py install
 
