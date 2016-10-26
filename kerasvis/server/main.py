@@ -7,7 +7,16 @@ from ..callback import DBLogger
 
 app = Flask(__name__)
 db_folder = os.path.join(os.environ["HOME"], "tmp")
+
 app.config["keras_log_db_path"] = "sqlite:///" + os.path.join(db_folder, "keras_logs.db")
+
+try:
+    app.config["allow_delete"] = os.environ["KERASVIS_ALLOW_DELETE"] != "False"
+except KeyError:
+    app.config["allow_delete"] = True
+
+print(app.config["allow_delete"], type(app.config["allow_delete"]))
+
 print("DB is", app.config["keras_log_db_path"])
 
 
@@ -65,7 +74,8 @@ def detail(id):
 
 @app.route("/remove/<int:id>")
 def remove(id):
-    DBLogger(db_folder=db_folder, id=id).delete(no_confirm=True)
+    if app.config["allow_delete"]:
+        DBLogger(db_folder=db_folder, id=id).delete(no_confirm=True)
     return redirect("/")
 
 

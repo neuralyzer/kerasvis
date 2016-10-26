@@ -66,3 +66,10 @@ Runs can be deleted with the `DBLogger`. To delete the run with id 3 you do
     db_logger.delete()
     
 you will then be asked if you really want to delete and have to confirm with "yes".
+
+
+Runs can also be delted via the web interface. To disable deletion via the webinterface
+set the environment variable
+
+    KERASVIS_ALLOW_DELETE=False
+    
