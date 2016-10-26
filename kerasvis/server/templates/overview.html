@@ -12,6 +12,9 @@
         <th>
             User
         </th>
+        <th>
+            Remove
+        </th>
     </tr>
     {% for id, comment, user in data %}
     <tr class="{{ loop.cycle('odd', 'even') }}">
@@ -23,6 +26,9 @@
         </td>
         <td>
             <a href="{{ url_for('detail', id=id) }}">{{ user }}</a>
+        </td>
+        <td>
+            <a href="{{ url_for('remove', id=id) }}">Remove</a>
         </td>
     </tr>
     {% endfor %}

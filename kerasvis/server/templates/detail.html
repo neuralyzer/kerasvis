@@ -10,7 +10,7 @@
 <ul class="menu">
 {% for current_id, comment in runs %}
 <li>
-    <a href="{{ url_for('detail', id=current_id) }}" {%if current_id==id %}class="current_item"{% endif %}>[{{ current_id }}] {{ comment }}</a>
+    <a href="{{ url_for('detail', id=current_id) }}" {%if current_id==id %}class="current_item"{% endif %}>[{{ current_id }}] {{ comment }}</a>&nbsp;<a href="{{ url_for('remove', id=current_id) }}">Remove</a>
 </li>
 {% endfor %}
 </ul>

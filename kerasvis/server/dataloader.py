@@ -7,6 +7,7 @@ class LogDataLoader:
     def __init__(self, path=None):
         if path is None:
             path = "sqlite:///" + os.path.join(os.environ["HOME"], "tmp", "keras_logs.db")
+        db_path = path.replace("sqlite:///", "")
         try:
             self.logs = pd.read_sql_table("log", path)
             self.runs = pd.read_sql_table("run", path).rename(columns={"id": "runid"}).sort_values("runid", ascending=False)

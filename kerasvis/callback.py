@@ -36,8 +36,11 @@ class DBLogger:
         self._init_record(id, comment)
         print(self, flush=True)
 
-    def delete(self):
-        res = input("Really delete id={}? Confirm with \"yes\"".format(self.id))
+    def delete(self, no_confirm=False):
+        if no_confirm:
+            res = "yes"
+        else:
+            res = input("Really delete id={}? Confirm with \"yes\"".format(self.id))
         if res == "yes":
             with self.connection:
                 self.connection.execute("DELETE FROM run WHERE id=?", (self.id,))
