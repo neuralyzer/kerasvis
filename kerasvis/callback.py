@@ -122,10 +122,10 @@ class DBLogger:
 
     # these her are copief from keras.callback to avoid the keras import
     # and the initialization of theano caused by it
-    def _set_params(self, params):
+    def set_params(self, params):
         self.params = params
 
-    def _set_model(self, model):
+    def set_model(self, model):
         self.model = model
 
     def on_epoch_begin(self, epoch, logs={}):
